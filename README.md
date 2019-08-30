@@ -13,7 +13,7 @@ However, the `slicer3d-nightly` is based on the official `qt5-centos7` [base-ima
 Please be aware that this docker image is `work-in-progress`! The image should therefore only used in testing.
 The author does not accept any responsability for using the code.
 
-Additionally, the image is currently fixed to commit [82f0c503a9bcd039edf7e1c6b3b33e78faf80bb7](https://github.com/Slicer/Slicer/commit/82f0c503a9bcd039edf7e1c6b3b33e78faf80bb7). Future versions of the image should be *updated*, whenever the branch is enhanced - currently though the image remains static.
+Additionally, the image is currently fixed to commit [82f0c50](https://github.com/Slicer/Slicer/commit/82f0c503a9bcd039edf7e1c6b3b33e78faf80bb7). Future versions of the image should be *updated*, whenever the branch is enhanced - currently though the image remains static.
 
 ## Warning
 
