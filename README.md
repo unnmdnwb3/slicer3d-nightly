@@ -36,8 +36,26 @@ docker ps -a
 To get access to the container's `bash`, use:
 
 ```bash
-docker exec -dit <container-id> /bin/bash
+docker exec -it <container-id> /bin/bash
 ```
+
+If you don't use the container anymore, feel free to delete it:
+
+```bash
+docker ps -a
+docker kill <container-id>
+docker rm <container-id>
+```
+
+If you even want to delete the image itself, just use:
+
+```bash
+docker images
+docker image rm <image-id>
+```
+
+Please note though, that removing an image can not be undone. You would have to download the whole image from scratch again.
+Also, if you have a running container based on the image you want to remove, you have to remove it with force `-f`.
 
 ## Supported Components
 
