@@ -63,15 +63,15 @@ This image inherits several components, which are used to build Slicer and its d
 
 This list includes, but is not limited to:
 
-- gcc
-- g++
-- git
-- cmake
-- make
-- wget
-- Qt5
-- Xvfb
-- Xorg
+- *gcc*
+- *g++*
+- *git*
+- *cmake*
+- *make*
+- *wget*
+- *Qt5*
+- *Xvfb*
+- *Xorg*
 
 ## Limitations
 
