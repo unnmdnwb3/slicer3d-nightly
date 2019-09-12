@@ -78,7 +78,11 @@ This list includes, but is not limited to:
 Please be aware that this docker image is `work-in-progress`! The image should therefore only used in testing.
 The author does not accept any responsability for using the code.
 
-Additionally, the image is currently fixed to commit [82f0c50](https://github.com/Slicer/Slicer/commit/82f0c503a9bcd039edf7e1c6b3b33e78faf80bb7). Future versions of the image should be *updated*, whenever the branch is enhanced - currently though the image remains static. However, currently all versions have to build locally, since dockerhub enforces some [resource-limits](https://success.docker.com/article/what-are-the-current-resource-limits-placed-on-automated-builds) which are way to low for building Slicer from scratch. Therefore, the bulding process will possibly moved to `travis`, since they offer better [specs](https://docs.travis-ci.com/user/reference/overview/).
+Please note that the image versions on [dockerhub](https://hub.docker.com/r/unnmdnwb3/slicer3d-nightly) are currently fixed to a commit on [nightly-master](https://github.com/Slicer/Slicer/tree/nightly-master): 
+- `0.2.0` version is currently *fixed* to commit [c0c5df6](https://github.com/Slicer/Slicer/commit/c0c5df6c4f8461339cf2ae2d741dcf420dceed65)
+- `0.1.0` version is currently *fixed* to commit [82f0c50](https://github.com/Slicer/Slicer/commit/82f0c503a9bcd039edf7e1c6b3b33e78faf80bb7)
+
+Future versions of the image should be *updated*, whenever the branch is enhanced - currently though the image remains static. However, currently all versions have to build locally, since dockerhub enforces some [resource-limits](https://success.docker.com/article/what-are-the-current-resource-limits-placed-on-automated-builds) which are way to low for building Slicer from scratch. Therefore, the bulding process will possibly moved to `travis`, since they offer better [specs](https://docs.travis-ci.com/user/reference/overview/).
 
 ## Warning
 
