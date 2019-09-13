@@ -1,6 +1,6 @@
 # Slicer3D-Nightly
 
-This is the unofficial image for the **Slicer3D** `nightly-master` branch, which can be found on [dockerhub](https://hub.docker.com/r/unnmdnwb3/slicer3d-nightly) under `unnmdnwb3/slicer3d-nightly.
+This is the unofficial image for the **Slicer3D** `nightly-master` branch, which can be found on [dockerhub](https://hub.docker.com/r/unnmdnwb3/slicer3d-nightly) under `unnmdnwb3/slicer3d-nightly`.
 
 This repository contains the `Dockerfile` to build the image `slicer3d-nightly` - a testing environment for [Slicer3D Nightly Build](https://github.com/Slicer/Slicer/tree/nightly-master) and therefore **Slicer 4.11**. The image can be used by project-teams working on extensions for Slicer3D.
 
