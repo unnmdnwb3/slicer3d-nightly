@@ -8,7 +8,7 @@ WORKDIR /usr/src
 RUN yum install Xvfb Xorg -y
 
 # get slicer nighly version
-RUN git clone -b nightly-master https://github.com/Slicer/Slicer.git
+RUN git clone -b nightly-master https://github.com/Slicer/Slicer.git && echo "Current commit:" && git rev-parse HEAD
 
 # create slicer-build and environment
 RUN mkdir /usr/src/Slicer-build && \

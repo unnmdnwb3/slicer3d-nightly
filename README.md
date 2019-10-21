@@ -2,38 +2,60 @@
 
 This is the unofficial image for the **Slicer3D** `nightly-master` branch.
 
-This repository contains the `Dockerfile` to build the image `slicer3d-nightly` - a testing environment for [Slicer3D Nightly Build](https://github.com/Slicer/Slicer/tree/nightly-master) and therefore **Slicer 4.11**. The image can be used by project-teams working on extensions for Slicer3D.
+The image can be found on **Dockerhub**, under [unnmdnwb3/slicer3d-nightly](https://hub.docker.com/r/unnmdnwb3/slicer3d-nightly).
 
-In contrast to the [official Slicer images](https://github.com/thewtex/SlicerDocker), this image is based on the `nightly-build` branch of Slicer - and hence explicitly _not_ on the stable `master`. Therefore, this image supports `python3`.
+## Details
 
-However, the `slicer3d-nightly` is based on the official `qt5-centos7` [base-image](https://github.com/Slicer/SlicerBuildEnvironment/blob/master/Docker/qt5-centos7/Dockerfile), which the official Slicer-images use as well.
+This repository contains the **Dockerfile** to build the image `unnmdnwb3/slicer3d-nightly` - a testing environment for [Slicer3D Nightly Build](https://github.com/Slicer/Slicer/tree/nightly-master) and therefore **Slicer 4.11**. The image can be used by project-teams working on extensions for Slicer3D.
+
+In contrast to the [official Slicer images](https://github.com/thewtex/SlicerDocker), this image is based on the **nightly-build** branch of Slicer - and hence explicitly **not** on the stable **master**. Therefore, this image supports `python3`.
+
+However, the image is based on the `slicer/buildenv-qt5-centos7` [Dockerfile](https://github.com/Slicer/SlicerBuildEnvironment/blob/master/Docker/qt5-centos7/Dockerfile), also hosted on [Dockerhub](https://hub.docker.com/r/slicer/buildenv-qt5-centos7), which the official Slicer-images use as well.
 
 ## Prerequisites
 
-To be able to use `slicer3d-nightly` locally, you have to have `Docker` installed.
+To be able to use `unnmdnwb3/slicer3d-nightly` locally, you have to have `Docker` installed.
 Please download Slicer from their [official website](https://www.docker.com/get-started) and build it [manually](https://www.slicer.org/wiki/Documentation/Nightly/Developers/Build_Instructions).
 
 ## Installation
 
-To use the image, you have to `pull` the newest version first:
+### Use the Dockerfile
+
+To build the Dockerfile from scratch
 
 ```bash
-docker pull unnmdnwb3/slicer3d-nightly:latest
+cd <dockerfile-directory>
+docker build . --tag unnmdnwb3/slicer3d-nightly:<tag> --no-cache
 ```
 
-To `run` it, use the following command:
+Push the newest image to dockerhub (if you are an *accepted collaborator*):
 
 ```bash
-docker run -dit unnmdnwb3/slicer3d-nightly:latest
+cd <dockerfile-directory>
+docker push unnmdnwb3/slicer3d-nightly:<tag>
 ```
 
-If you run the following command, you get an overview over all your container instance and can retrieve the `container's id`:
+### Use the Image
+
+To use the image, you have to **pull** the newest version first:
+
+```bash
+docker pull unnmdnwb3/slicer3d-nightly:<tag>
+```
+
+To **run** it, use the following command:
+
+```bash
+docker run -dit unnmdnwb3/slicer3d-nightly:<tag>
+```
+
+If you run the following command, you get an overview over all your container instance and can retrieve the **container's id**:
 
 ```bash
 docker ps -a
 ```
 
-To get access to the container's `bash`, use:
+To get access to the container's **shell**, use:
 
 ```bash
 docker exec -dit <container-id> /bin/bash
@@ -60,7 +82,7 @@ This list includes, but is not limited to:
 Please be aware that this docker image is `work-in-progress`! The image should therefore only used in testing.
 The author does not accept any responsability for using the code.
 
-Additionally, the image is currently fixed to commit [82f0c50](https://github.com/Slicer/Slicer/commit/82f0c503a9bcd039edf7e1c6b3b33e78faf80bb7). Future versions of the image should be *updated*, whenever the branch is enhanced - currently though the image remains static. However, currently all versions have to build locally, since dockerhub enforces some [resource-limits](https://success.docker.com/article/what-are-the-current-resource-limits-placed-on-automated-builds) which are way to low for building Slicer from scratch. Therefore, the bulding process will possibly moved to `travis`, since they offer better [specs](https://docs.travis-ci.com/user/reference/overview/).
+Currently, image versions are fixed and point to specific new commits on Slicer's `nightly-master`, which introduce breaking changes. Future versions of the image should be *updated*, whenever the branch is enhanced - currently though the image remains static. However, currently all versions have to build locally, since dockerhub enforces some [resource-limits](https://success.docker.com/article/what-are-the-current-resource-limits-placed-on-automated-builds) which are way to low for building Slicer from scratch. Therefore, the bulding process will possibly moved to `travis`, since they offer better [specs](https://docs.travis-ci.com/user/reference/overview/).
 
 ## Warning
 
