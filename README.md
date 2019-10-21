@@ -2,7 +2,7 @@
 
 This is the unofficial image for the **Slicer3D** `nightly-master` branch.
 
-The image can be found on **Dockerhub**, under [unnmdnwb3/slicer3d-nightly](https://hub.docker.com/r/unnmdnwb3/slicer3d-nightly).
+The image can be found on [dockerhub](https://hub.docker.com/r/unnmdnwb3/slicer3d-nightly) , under [unnmdnwb3/slicer3d-nightly](https://hub.docker.com/r/unnmdnwb3/slicer3d-nightly).
 
 ## Details
 
@@ -58,8 +58,26 @@ docker ps -a
 To get access to the container's **shell**, use:
 
 ```bash
-docker exec -dit <container-id> /bin/bash
+docker exec -it <container-id> /bin/bash
 ```
+
+If you don't use the container anymore, feel free to delete it:
+
+```bash
+docker ps -a
+docker kill <container-id>
+docker rm <container-id>
+```
+
+If you even want to delete the image itself, just use:
+
+```bash
+docker images
+docker image rm <image-id>
+```
+
+Please note though, that removing an image can not be undone. You would have to download the whole image from scratch again.
+Also, if you have a running container based on the image you want to remove, you have to remove it with force `-f`.
 
 ## Supported Components
 
@@ -67,22 +85,24 @@ This image inherits several components, which are used to build Slicer and its d
 
 This list includes, but is not limited to:
 
-- gcc
-- g++
-- git
-- cmake
-- make
-- wget
-- Qt5
-- Xvfb
-- Xorg
+- *gcc*
+- *g++*
+- *git*
+- *cmake*
+- *make*
+- *wget*
+- *Qt5*
+- *Xvfb*
+- *Xorg*
 
 ## Limitations
 
 Please be aware that this docker image is `work-in-progress`! The image should therefore only used in testing.
 The author does not accept any responsability for using the code.
 
-Currently, image versions are fixed and point to specific new commits on Slicer's `nightly-master`, which introduce breaking changes. Future versions of the image should be *updated*, whenever the branch is enhanced - currently though the image remains static. However, currently all versions have to build locally, since dockerhub enforces some [resource-limits](https://success.docker.com/article/what-are-the-current-resource-limits-placed-on-automated-builds) which are way to low for building Slicer from scratch. Therefore, the bulding process will possibly moved to `travis`, since they offer better [specs](https://docs.travis-ci.com/user/reference/overview/).
+Please note that the image versions on [dockerhub](https://hub.docker.com/r/unnmdnwb3/slicer3d-nightly) are currently fixed to commits on [nightly-master](https://github.com/Slicer/Slicer/tree/nightly-master), which introduce breaking changes.
+
+Future versions of the image should be *updated*, whenever the branch is enhanced - currently though the image remains static. However, currently all versions have to build locally, since dockerhub enforces some [resource-limits](https://success.docker.com/article/what-are-the-current-resource-limits-placed-on-automated-builds) which are way to low for building Slicer from scratch. Therefore, the bulding process will possibly moved to `travis`, since they offer better [specs](https://docs.travis-ci.com/user/reference/overview/).
 
 ## Warning
 
